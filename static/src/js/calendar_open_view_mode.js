@@ -1,14 +1,15 @@
 odoo.define('purchase_order.calender_view', function (require) {
 "use strict";
 
-    var calenderView = require('web_calendar.CalendarView');
-        calenderView.include({
+var calendarView = require('web_calendar.CalendarView');
 
-                if (this.model != 'purchase.order') {
-                         this._super();
-                    }else {
-                    this.do_switch_view('form', null, { mode: "view" });
-                }
-                }
-            });
+calendarView.include({
+        open_event:function(){
+            if (this.model != 'purchase.order') {
+                this._super();
+            } else {
+                this.do_switch_view('form', null, { mode: "view" });
+            }
+        }
     });
+});
